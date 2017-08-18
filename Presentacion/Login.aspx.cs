@@ -28,6 +28,7 @@ namespace Presentacion
             this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('" + objeto.Keys.ToString() + "');window.location=\"" + url + "\"</script>");
 
 
+
         }
     }
 }
