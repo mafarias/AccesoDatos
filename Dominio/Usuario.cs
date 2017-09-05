@@ -26,6 +26,8 @@ namespace Dominio
 
         public string PassWord { get; set; }
 
+        public Rol RolUsuario { get; set; }
+
         public Usuario() { }
     }
     

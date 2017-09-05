@@ -100,8 +100,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AUsuarios.aspx" />
-    <Content Include="Clientes.aspx" />
+    <Content Include="Presentacion\AUsuarios.aspx" />
+    <Content Include="Presentacion\Clientes.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -175,17 +175,19 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Global.asax" />
-    <Content Include="Inicio.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="Ordenes.aspx" />
-    <Content Include="OrdenesPorCliente.aspx" />
+    <Content Include="Presentacion\Inicio.aspx" />
+    <Content Include="Presentacion\Login.aspx" />
+    <Content Include="Presentacion\Ordenes.aspx" />
+    <Content Include="Presentacion\OrdenesPorCliente.aspx" />
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootswatch.less" />
     <Content Include="master\masteruno.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Productos.aspx" />
+    <Content Include="Presentacion\Productos.aspx" />
+    <Content Include="Presentacion\Roles.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -208,35 +210,35 @@
   <ItemGroup>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AUsuarios.aspx.cs">
+    <Compile Include="Presentacion\AUsuarios.aspx.cs">
       <DependentUpon>AUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AUsuarios.aspx.designer.cs">
+    <Compile Include="Presentacion\AUsuarios.aspx.designer.cs">
       <DependentUpon>AUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Clientes.aspx.cs">
+    <Compile Include="Presentacion\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Clientes.aspx.designer.cs">
+    <Compile Include="Presentacion\Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Inicio.aspx.cs">
+    <Compile Include="Presentacion\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
+    <Compile Include="Presentacion\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="Presentacion\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="Presentacion\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="master\masteruno.Master.cs">
@@ -246,31 +248,39 @@
     <Compile Include="master\masteruno.Master.designer.cs">
       <DependentUpon>masteruno.Master</DependentUpon>
     </Compile>
-    <Compile Include="Ordenes.aspx.cs">
+    <Compile Include="Presentacion\Ordenes.aspx.cs">
       <DependentUpon>Ordenes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ordenes.aspx.designer.cs">
+    <Compile Include="Presentacion\Ordenes.aspx.designer.cs">
       <DependentUpon>Ordenes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OrdenesPorCliente.aspx.cs">
+    <Compile Include="Presentacion\OrdenesPorCliente.aspx.cs">
       <DependentUpon>OrdenesPorCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="OrdenesPorCliente.aspx.designer.cs">
+    <Compile Include="Presentacion\OrdenesPorCliente.aspx.designer.cs">
       <DependentUpon>OrdenesPorCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Productos.aspx.cs">
+    <Compile Include="Presentacion\Productos.aspx.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Productos.aspx.designer.cs">
+    <Compile Include="Presentacion\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="LogicaPresentacion\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
