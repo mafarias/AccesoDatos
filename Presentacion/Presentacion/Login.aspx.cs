@@ -21,12 +21,13 @@ namespace Presentacion
             Usuario usuario = new Usuario();
            usuario.UserName = Login1.UserName.ToString();
             usuario.PassWord = Login1.Password.ToString();
-            Dictionary<string, Usuario> objeto = new Dictionary<string, Usuario>();
-            string url = "Clientes.aspx";
+            
             NegocioUsuarios negocio = new NegocioUsuarios();
-            objeto = negocio.TraerLogin(usuario);
-            this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('" + objeto.Keys.ToString() + "');window.location=\"" + url + "\"</script>");
-
+            usuario = negocio.TraerLogin(usuario);
+            Session["usuario"] = usuario;
+            this.RegisterStartupScript("mensaje", "<script type='text/javascript'>alert('" + usuario.RolUsuario.Mensaje + "');</script>");
+            Response.Redirect(usuario.RolUsuario.urlInicio);
+            
 
 
         }

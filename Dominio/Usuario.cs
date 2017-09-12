@@ -6,6 +6,7 @@ namespace Dominio
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+
     [Serializable]
     public class Usuario
     

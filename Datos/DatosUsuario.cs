@@ -14,6 +14,8 @@ namespace Datos
 
         private List<Usuario> usuarios = new List<Usuario>();
 
+        DatosRoles datosRol = new DatosRoles();
+
         public DatosUsuario() : base() { }
 
         public List<Usuario> ObtenerUsuarios()
@@ -59,7 +61,7 @@ namespace Datos
             usuarios.Clear();
             Parametro ParametroUsuario = new Parametro("@Id", DbType.Int16, usuario.Id);
             registros = Consultar("ConsultarUsuario", ParametroUsuario);
-            DatosRoles datosRol = new DatosRoles();
+            
 
             if (registros.Rows.Count > 0)
             {
@@ -96,7 +98,12 @@ namespace Datos
                 usuario.Identificacion = Convert.ToInt32(registros.Rows[0]["Identificacion"]);
                 usuario.Telefono = Convert.ToInt32(registros.Rows[0]["Telefono"]);
                 usuario.Eliminado = Convert.ToBoolean(registros.Rows[0]["eliminado"]);
-                
+                usuario.UserName = registros.Rows[0]["userName"].ToString();
+                usuario.PassWord = registros.Rows[0]["pass"].ToString();
+                usuario.RolUsuario = new Rol();
+                usuario.RolUsuario.Id = Convert.ToInt32(registros.Rows[0]["IdRol"]);
+                usuario.RolUsuario = datosRol.ConsultarRolXId(usuario.RolUsuario.Id);
+
             }
 
             return usuario;

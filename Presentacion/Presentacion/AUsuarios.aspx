@@ -80,6 +80,19 @@
         </tr>
         <tr>
             <td>
+                <asp:Label Text="User Name" runat="server" />
+            </td>
+            <td>
+                <asp:Label Text="Password" runat="server" />
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
                 <asp:Button Text="Crear" runat="server" ID="btnGuardar" OnClick="btnGuardar_Click" CssClass="btn btn-primary" Enabled="false" ValidationGroup="VG_Validacion" />
                 <asp:Button Text="Modificar" runat="server" ID="btnModificar" OnClick="btnModificar_Click" CssClass="btn btn-primary" Enabled="false" ValidationGroup="VG_Validacion" />
                 <asp:Button Text="Eliminar" runat="server" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-primary" Enabled="false" />

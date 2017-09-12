@@ -29,17 +29,18 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="../AUsuarios.aspx">Usuarios<span class="sr-only"></span></a></li>
-                            <li><a href="../Clientes.aspx">Clientes</a></li>
-                            <li><a href="../Productos.aspx">Productos</a></li>
-                            <li><a href="../Ordenes.aspx">Ordenes de Compra</a></li>
-                            <li><a href="../OrdenesPorCliente.aspx">Ordenes Por Cliente</a></li>
+                             <li><a href="../Presentacion/Inicio.aspx" id="Inicio">Inicio</a> </li>
+                             <li><a href="../AUsuarios.aspx" id="Config_Usuarios"  visible="false">Usuarios<span class="sr-only"></span></a></li>
+                             <li><a href="../Clientes.aspx" id="Config_Clientes" visible="false">Clientes</a></li>
+                             <li><a href="../Productos.aspx" id="Config_Productoss" visible="false">Productos</a></li>
+                             <li><a href="../Ordenes.aspx" id="Ordenes" visible="false">Ordenes de Compra</a></li>
+                             <li><a href="../OrdenesPorCliente.aspx" id="Ordenes_cliente" visible="false">Ordenes Por Cliente</a></li>
 
 
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">Gracias Por visitar</a></li>
+                            <li><a href="#" id="Salir">Gracias Por visitar</a></li>
                         </ul>
                     </div>
                 </div>

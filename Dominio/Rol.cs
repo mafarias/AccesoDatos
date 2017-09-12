@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Dominio
 {
+    [Serializable]
     public class Rol
     {
         public int Id { get; set; }

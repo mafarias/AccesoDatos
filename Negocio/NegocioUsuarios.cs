@@ -42,26 +42,25 @@ namespace Negocio
             return usuario;
         }
 
-        public Dictionary<string,Usuario> TraerLogin(Usuario usuario)
+        public Usuario TraerLogin(Usuario usuario)
         {
-            Dictionary<string, Usuario> objeto = new Dictionary<string, Usuario>();
-            string mensaje = string.Empty;
+                       
             usuario = datos.ConsultarUsuarioXLogin(usuario);
             
             if (!usuario.Eliminado && usuario.Id>0)
             {
-                 mensaje = "Bienvenido" + usuario.Nombre;
+                 usuario.RolUsuario.Mensaje =usuario.RolUsuario.Mensaje+ " " + usuario.Nombre;
             }
-            else if (usuario.Id>0)
+            else if (!usuario.Eliminado)
             {
-                mensaje = "Usuario deshabilitado";
+                usuario.RolUsuario.Mensaje = "Usuario deshabilitado";
             }
             else
             {
-                mensaje = "Username o clave incorrecta";
+                usuario.RolUsuario.Mensaje = "Username o clave incorrecta";
             }
-            objeto.Add(mensaje, usuario);
-            return objeto;
+            
+            return usuario;
         }
 
 
