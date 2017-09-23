@@ -12,6 +12,7 @@ namespace Presentacion
     public partial class AUsuarios : System.Web.UI.Page
     {
         NegocioUsuarios Negocio = new NegocioUsuarios();
+        NegocioRoles negRoles = new NegocioRoles();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,6 +21,10 @@ namespace Presentacion
             if (!IsPostBack)
             {
                 ddlAccion.SelectedItem.Value = "1";
+                ddlRol.DataSource = negRoles.ConsultarRoles();
+                ddlRol.DataTextField = "Nombre";
+                ddlRol.DataValueField = "Id";
+                ddlRol.DataBind();
                 btnGuardar.Enabled = true;
             }
         }
@@ -48,16 +53,26 @@ namespace Presentacion
             usuario.Identificacion = Convert.ToInt32(txtIdentificacion.Text);
             usuario.Telefono = Convert.ToInt32(txtTelefono.Text);
             usuario.Direccion = txtDireccion.Text;
+            usuario.UserName = txtUserName.Text;
+            usuario.PassWord = txtPassword.Text;
+            usuario.RolUsuario = new Rol();
+            usuario.RolUsuario.Id = Convert.ToInt32(ddlRol.SelectedValue);
             usuario.Eliminado = false;
 
             usuario.Id = Negocio.CrearUsuario(usuario);
 
-            if (usuario.Id > -1)
+            if (usuario.Id > 0)
             {
                 lblMensaje.Visible = true;
-                lblMensaje.Text = "El usuario:" + usuario.Nombre + " Se creo correctamente";
+                lblMensaje.Text = "El usuario: " + usuario.Nombre + " Se creo correctamente";
                 this.LimpiarCampos();
 
+            }
+            else if (usuario.Id == 0)
+            {
+                lblMensaje.Visible = true;
+                lblMensaje.CssClass = "alert alert-dismissible alert-warning";
+                lblMensaje.Text = "El user name: " + usuario.UserName + " ya está en uso";
             }
             else
             {
@@ -75,6 +90,10 @@ namespace Presentacion
             usuario.Identificacion = Convert.ToInt32(txtIdentificacion.Text);
             usuario.Telefono = Convert.ToInt32(txtTelefono.Text);
             usuario.Direccion = txtDireccion.Text;
+            usuario.UserName = txtUserName.Text;
+            usuario.PassWord = txtPassword.Text;
+            usuario.RolUsuario = new Rol();
+            usuario.RolUsuario.Id = Convert.ToInt32(ddlRol.SelectedValue);
             usuario.Eliminado = ddlEliminado.SelectedValue == "SI" ? true : false;
 
             bool res = Negocio.ModificarUsuario(usuario);
@@ -125,6 +144,8 @@ namespace Presentacion
             txtId.Text = usuario.Id.ToString();
             txtIdentificacion.Text = usuario.Identificacion.ToString();
             txtNombre.Text = usuario.Nombre;
+            txtUserName.Text = usuario.UserName;
+            txtPassword.Text = usuario.PassWord;
             ddlEliminado.SelectedValue = usuario.Eliminado ? "SI" : "NO";
             txtTelefono.Text = usuario.Telefono.ToString();
             txtDireccion.Text = usuario.Direccion;
@@ -185,7 +206,8 @@ namespace Presentacion
             txtEliminado.Text = string.Empty;
             txtTelefono.Text = string.Empty;
             txtDireccion.Text = string.Empty;
-
+            txtPassword.Text = string.Empty;
+            txtUserName.Text = string.Empty;
         }
     }
 }

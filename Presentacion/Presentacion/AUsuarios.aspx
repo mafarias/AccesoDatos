@@ -83,13 +83,26 @@
                 <asp:Label Text="User Name" runat="server" />
             </td>
             <td>
-                <asp:Label Text="Password" runat="server" />
+                <asp:TextBox runat="server" ID="txtUserName" />
 
             </td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
+            <td>
+                <asp:Label Text="Password" runat="server" />
+
+            </td>
+            <td>
+                <asp:TextBox runat="server" id="txtPassword" TextMode="Password"/>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                <asp:Label Text="Rol" runat="server" />
+            </td>
+            <td><asp:DropDownList runat="server" ID="ddlRol">
+                    
+                </asp:DropDownList></td>
         </tr>
         <tr>
             <td>

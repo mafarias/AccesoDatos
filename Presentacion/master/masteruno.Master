@@ -29,18 +29,23 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                             <li><a href="../Presentacion/Inicio.aspx" id="Inicio">Inicio</a> </li>
-                             <li><a href="../AUsuarios.aspx" id="Config_Usuarios"  visible="false">Usuarios<span class="sr-only"></span></a></li>
-                             <li><a href="../Clientes.aspx" id="Config_Clientes" visible="false">Clientes</a></li>
-                             <li><a href="../Productos.aspx" id="Config_Productoss" visible="false">Productos</a></li>
-                             <li><a href="../Ordenes.aspx" id="Ordenes" visible="false">Ordenes de Compra</a></li>
-                             <li><a href="../OrdenesPorCliente.aspx" id="Ordenes_cliente" visible="false">Ordenes Por Cliente</a></li>
+                             <li runat="server" id="Inicio" visible="true">
+                                 <asp:HyperLink NavigateUrl="../Presentacion/Inicio.aspx" runat="server" Text="Inicio" /> </li>
+                             <li runat="server" id="Config_Usuarios" visible="true">
+                                 <asp:HyperLink NavigateUrl="~/Presentacion/AUsuarios.aspx" runat="server" Text="Usuarios"  /></li>
+                             <li runat="server" id="Config_Clientes" visible="false">
+                                 <asp:HyperLink  runat="server" NavigateUrl="~/Presentacion/Clientes.aspx" Text="Clientes" /></li>
+                             <li runat="server" id="Config_Productos" visible="false">  <asp:HyperLink NavigateUrl="../Productos.aspx" runat="server"  Text="Productos"/></li>
+                             <li runat="server" id="Ordenes" visible="false">
+                                 <asp:HyperLink NavigateUrl="~/Presentacion/Ordenes.aspx" runat="server" Text="Ordenes de Compra" /> </li>
+                             <li runat="server" id="Ordenes_cliente" visible="false" > <asp:HyperLink NavigateUrl="~/Presentacion/OrdenesPorCliente.aspx" runat="server" Text=" Ordenes Por Cliente" /></li>
+                             <li runat="server" id="Config_Roles" visible="false" > <asp:HyperLink NavigateUrl="~/Presentacion/Inicio.aspx" runat="server" Text="Roles" /></li>
 
 
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#" id="Salir">Gracias Por visitar</a></li>
+                            <li><a href="../Presentacion/Login.aspx" id="Salir">Gracias Por visitar</a></li>
                         </ul>
                     </div>
                 </div>

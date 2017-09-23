@@ -7,6 +7,7 @@
     /// </summary>
     public class Parametro
     {
+
         /// <summary>
         /// Constructor de la clase
         /// </summary>

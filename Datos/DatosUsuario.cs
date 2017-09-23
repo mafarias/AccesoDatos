@@ -132,10 +132,22 @@ namespace Datos
             Parametro paremtroTelefono = new Parametro("@Telefono", DbType.String, usuario.Telefono);
             Parametro parametroIdenti = new Parametro("@Identificacion", DbType.Int32, usuario.Identificacion);
             Parametro parametroEliminado = new Parametro("@eliminado", DbType.Boolean, usuario.Eliminado);
+            Parametro parUserName = new Parametro("@userName", DbType.String, usuario.UserName);
+            Parametro parPass = new Parametro("@pass",DbType.String,usuario.PassWord);
+            Parametro parRol = new Parametro("@idRol", DbType.Int32, usuario.RolUsuario.Id);
+            string cantUsername = Escalar("ValidarUsername", parUserName).ToString();
+            if (cantUsername == "0")
+            {
+                usuario.Id = Convert.ToInt32(Insertar("CrearUsuario", parametroNombre, parametroIdenti, parametroDir, paremtroTelefono, parametroEliminado,parUserName,parPass,parRol));
 
-            usuario.Id = Convert.ToInt32(Insertar("CrearUsuario", parametroNombre,parametroIdenti, parametroDir, paremtroTelefono, parametroEliminado));
-
-            return usuario.Id;
+                return usuario.Id;
+                
+            }
+            else
+            {
+                return 0;
+            }
+            
         }
 
         public bool EliminarUsuario(Usuario usuario)

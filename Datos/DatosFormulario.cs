@@ -12,6 +12,10 @@ namespace Datos
     {
         private DataTable registros = new DataTable();
 
+
+        
+        
+
         List<Formulario> Lista = new List<Formulario>();
 
         public List<Formulario> ObtenerFormulariosXrol(int IdRol)
@@ -32,5 +36,7 @@ namespace Datos
             }
             return Lista;
         }
+
+     
     }
 }
