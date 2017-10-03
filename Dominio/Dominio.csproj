@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="Control.cs" />
     <Compile Include="Formulario.cs" />
     <Compile Include="Orden.cs" />
     <Compile Include="OrdenCompra.cs" />

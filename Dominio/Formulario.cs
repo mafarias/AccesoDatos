@@ -15,5 +15,7 @@ namespace Dominio
         public string Url { get; set; }
 
         public bool IsInicio { get; set; }
+
+        public List<Control> listControles { get; set; }
     }
 }

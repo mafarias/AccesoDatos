@@ -117,10 +117,23 @@ namespace Datos
             Parametro parametroIdenti = new Parametro("@Identificacion", DbType.Int32, usuario.Identificacion);
             Parametro paremtroTelefono = new Parametro("@Telefono", DbType.String, usuario.Telefono);
             Parametro parametroEliminado = new Parametro("@Eliminado", DbType.Boolean, usuario.Eliminado);
-
+            Parametro parUserName = new Parametro("@userName", DbType.String, usuario.UserName);
+            Parametro parPass = new Parametro("@pass", DbType.String, usuario.PassWord);
+            Parametro parRol = new Parametro("@idRol", DbType.Int32, usuario.RolUsuario.Id);
+            string cantUsername = Escalar("ValidarUsername", parUserName).ToString();
             bool res;
+            if (cantUsername == "0")
+            {
+                res = Actualizar("ModificarUsuario", parametroId, parametroNombre, parametroIdenti, parametroDir, paremtroTelefono, parametroEliminado);
 
-            res = Actualizar("ModificarUsuario", parametroId, parametroNombre,parametroIdenti, parametroDir, paremtroTelefono, parametroEliminado);
+            }
+
+            else
+            {
+                res = false;
+            }
+
+
 
             return res;
         }

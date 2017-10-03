@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Prueba" EntityNamespace="Prueba12Context" ContextNamespace="Prueba12Context" Class="Prueba12DataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="0298d43f-9d09-4215-8cce-35ae71f9eaa8" Provider="Devart.Data.SqlServer.Linq.Provider.SqlDataProvider, Devart.Data.SqlServer.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=03DEVJARIZA\SQLEXPRESS;Initial Catalog=Prueba;Integrated Security=False;Persist Security Info=True;User ID=sa;Password=Admin1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cliente" Member="Clientes">
+    <Type Name="Cliente" Id="ID1" ed:Guid="651203dd-d0db-44cf-9a9b-60d4c517f1a4">
+      <Column Name="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="10" ed:ValidateRequired="true" ed:Guid="a636bc7e-4fd7-41d9-939d-2c7a08be69df" />
+      <Column Name="Nit" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" Precision="10" ed:ValidateRequired="false" ed:Guid="5d7967ee-dd85-4956-a3f2-a2facb023dec" />
+      <Column Name="Nombre" Type="System.String" DbType="VARCHAR(50)" CanBeNull="true" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="14363d28-f6bf-4394-a4e4-416744dd3a8c" />
+      <Column Name="Direccion" Type="System.String" DbType="VARCHAR(50)" CanBeNull="true" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="452fcfec-f303-4769-8519-a45726efa94e" />
+      <Column Name="telefono" Member="Telefono" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" Precision="10" ed:ValidateRequired="false" ed:Guid="2487d72b-fc46-49fc-a804-2713e7b474ca" />
+      <Column Name="Eliminado" Type="System.Boolean" DbType="BIT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="2a1624be-0cfa-472a-ad05-580b9ff757e9" />
+      <Association Name="Cliente_OCompra" ed:AssociationGuid="a93f7668-037d-49fc-baa3-cd5111aed8ae" Member="OCompras" ed:Guid="d8ca828c-b348-426c-bd28-82d481876303" ThisKey="Id" OtherKey="IdCliente" Type="OCompra" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Formulario" Member="Formularios">
+    <Type Name="Formulario" Id="ID2" ed:Guid="4fe99405-a16d-4b4b-9c62-c06e70e4598b">
+      <Column Name="id" Member="Id" Type="System.Int16" AutoSync="OnInsert" DbType="SMALLINT NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="5" ed:ValidateRequired="true" ed:Guid="5001efa1-c306-4851-905b-20dcecec3b74" />
+      <Column Name="nombre" Member="Nombre" Type="System.String" DbType="VARCHAR(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="100" ed:ValidateMaxLength="100" ed:ValidateRequired="true" ed:Guid="ec616c80-b61f-4943-bc8c-90ca40781c9a" />
+      <Column Name="url" Member="Url" Type="System.String" DbType="VARCHAR(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="100" ed:ValidateMaxLength="100" ed:ValidateRequired="true" ed:Guid="90f6bd05-be45-4d27-b7c8-bce10b17776e" />
+      <Column Name="isInicio" Member="IsInicio" Type="System.Boolean" DbType="BIT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="true" ed:Guid="bb29ee30-b31c-4ea9-b2f3-69b6f5fb2e26" />
+      <Association Name="Rol_Formulario" ed:AssociationGuid="7c953701-05cb-435a-b620-901cac5534d2" Member="Rols" ed:Guid="95b2867f-7990-4455-babe-025c54b3e575" ThisKey="Id" OtherKey="Id" Type="Rol" LinkTableName="dbo.FormulariosXRol" LinkThisKey="IdFormulario" LinkOtherKey="IdRol" IsForeignKey="true" Cardinality="Many" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OCompra" Member="OCompras">
+    <Type Name="OCompra" Id="ID3" ed:Guid="7f9672c8-b9d0-47e2-a57a-261f5bfb2859">
+      <Column Name="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="10" ed:ValidateRequired="true" ed:Guid="e463b678-9acf-42a4-9879-e977fbd16c3d" />
+      <Column Name="IdCliente" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" Precision="10" ed:ValidateRequired="false" ed:Guid="8ab22844-317f-4c30-b745-3e3ae0933e83" />
+      <Column Name="NoOrden" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="10" ed:ValidateRequired="true" ed:Guid="6ee75f07-03f9-4004-a164-6c7d352f9368" />
+      <Column Name="Eliminado" Type="System.Boolean" DbType="BIT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="c9c9333d-3758-4740-a3f1-176236cd4594" />
+      <Association Name="Cliente_OCompra" ed:AssociationGuid="a93f7668-037d-49fc-baa3-cd5111aed8ae" Member="Cliente" ed:Guid="0cc728aa-e31e-4e56-a3e3-9ffe55f142ac" ThisKey="IdCliente" OtherKey="Id" Type="Cliente" DeleteRule="NO ACTION" IsForeignKey="true" />
+      <Association Name="OCompra_Producto" ed:AssociationGuid="e76f4e2b-d653-430a-8f04-c1b6e6cf05cc" Member="Productos" ed:Guid="fc52087e-4313-4d22-900d-10a641f1e09d" ThisKey="Id" OtherKey="Id" Type="Producto" LinkTableName="dbo.Orden_Producto" LinkThisKey="IdOrden" LinkOtherKey="IdProducto" Cardinality="Many" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pais" Member="Pais">
+    <Type Name="Pai" ed:Guid="3c027ee0-a6f2-497b-bd21-3aa60a31f961">
+      <Column Name="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="10" ed:ValidateRequired="true" ed:Guid="d9e66cc7-7aaa-4c9a-acd6-dfe12acfa7e1" />
+      <Column Name="NombrePais" Type="System.String" DbType="VARCHAR(50)" CanBeNull="true" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="f8387f9f-e1fb-4b99-9fea-566471afc929" />
+      <Column Name="Poblacion" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" Precision="10" ed:ValidateRequired="false" ed:Guid="f081dff4-3821-44c7-95b6-a832c9e19ace" />
+      <Column Name="Gentilicio" Type="System.String" DbType="VARCHAR(50)" CanBeNull="true" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="398f7d15-146a-4a30-ae89-a0f3ef4764b8" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producto" Member="Productos">
+    <Type Name="Producto" Id="ID4" ed:Guid="aa8d9eac-1c4a-46eb-be01-3cf2918e07f6">
+      <Column Name="Id" Type="System.Int32" AutoSync="OnInsert" DbType="INT NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="10" ed:ValidateRequired="true" ed:Guid="5be1ad37-5828-43e6-92fa-28628b63c99f" />
+      <Column Name="Producto" Member="Producto1" Type="System.String" DbType="VARCHAR(50)" CanBeNull="true" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="3d39a7f5-d9e2-4563-9cd4-23d43024664c" />
+      <Column Name="Cliente" Type="System.String" DbType="VARCHAR(50)" CanBeNull="true" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="7b252311-e2b8-4ae0-b7ea-5e829fcb0667" />
+      <Column Name="Eliminado" Type="System.Boolean" DbType="BIT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="eb6b95e3-65d3-498e-93e2-75c30042ebd8" />
+      <Association Name="OCompra_Producto" ed:AssociationGuid="e76f4e2b-d653-430a-8f04-c1b6e6cf05cc" Member="OCompras" ed:Guid="fb0e5b83-3bfe-4aa8-ac93-ffabae6cf139" ThisKey="Id" OtherKey="Id" Type="OCompra" LinkTableName="dbo.Orden_Producto" LinkThisKey="IdProducto" LinkOtherKey="IdOrden" IsForeignKey="true" Cardinality="Many" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rol" Member="Rols">
+    <Type Name="Rol" Id="ID5" ed:Guid="40d3a893-f2ef-4397-9cbe-c54c29fcab34">
+      <Column Name="Id" Type="System.Int16" AutoSync="OnInsert" DbType="SMALLINT NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="5" ed:ValidateRequired="true" ed:Guid="d2671b55-a684-48f6-9e49-8b3b8c66f129" />
+      <Column Name="nombre" Member="Nombre" Type="System.String" DbType="VARCHAR(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="ceb88e79-3dd2-4bc7-aedf-949ec345255d" />
+      <Column Name="urlInicio" Member="UrlInicio" Type="System.String" DbType="VARCHAR(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="440527cb-62a8-4c10-8d70-5469684ae5f6" />
+      <Column Name="mensajeInicio" Member="MensajeInicio" Type="System.String" DbType="VARCHAR(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="ad84f41b-1f6c-4d9f-a426-1142be6e99c4" />
+      <Association Name="Rol_Formulario" ed:AssociationGuid="7c953701-05cb-435a-b620-901cac5534d2" Member="Formularios" ed:Guid="d63863c5-59d7-4ac7-b993-de439020dcd1" ThisKey="Id" OtherKey="Id" Type="Formulario" LinkTableName="dbo.FormulariosXRol" LinkThisKey="IdRol" LinkOtherKey="IdFormulario" Cardinality="Many" />
+      <Association Name="Rol_Usuario" ed:AssociationGuid="5ea0a392-54be-4fcb-ab6c-9edf73a307d7" Member="Usuarios" ed:Guid="213cb8f1-4d1f-4ce4-bb9f-c2ac14643475" ThisKey="Id" OtherKey="IdRol" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario" Id="ID6" ed:Guid="6dd1cdc2-7426-4b47-9f6c-de00dffa3c33">
+      <Column Name="Id" Type="System.Byte" AutoSync="OnInsert" DbType="TINYINT NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" Precision="3" ed:ValidateRequired="true" ed:Guid="3a881172-96b1-4fe1-ade3-46f6aaabd5d5" />
+      <Column Name="Nombre" Type="System.String" DbType="VARCHAR(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="13a4148e-c2cd-4ac9-9f52-14b13b321e2c" />
+      <Column Name="Identificacion" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="10" ed:ValidateRequired="true" ed:Guid="2812ac0b-7c7a-46d2-9149-904f5231a6a9" />
+      <Column Name="Direccion" Type="System.String" DbType="VARCHAR(50)" CanBeNull="true" UpdateCheck="Never" MaxLength="50" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="5e268493-0ab8-4e30-bf90-2daeb791cf44" />
+      <Column Name="telefono" Member="Telefono" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" Precision="10" ed:ValidateRequired="false" ed:Guid="b3ce4441-2dba-41f0-a4e5-eafa15eb6aec" />
+      <Column Name="eliminado" Member="Eliminado" Type="System.Boolean" DbType="BIT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="6dcf61ae-f654-4480-aad7-abfa3c1dcfaf" />
+      <Column Name="userName" Member="UserName" Type="System.String" DbType="NVARCHAR(100) NOT NULL" CanBeNull="false" UpdateCheck="Never" DefaultValue="&quot;N'u'&quot;" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="true" ed:Guid="5e057ed1-bd2a-47d1-b600-04a4815f5b00" />
+      <Column Name="pass" Member="Pass" Type="System.String" DbType="NVARCHAR(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" DefaultValue="&quot;N'a'&quot;" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="322ab2b6-2d4e-4d19-b74d-00b8d5040023" />
+      <Column Name="IdRol" Type="System.Int16" DbType="SMALLINT NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="5" ed:ValidateRequired="true" ed:Guid="41ab81a2-57c2-4531-8f4e-da60c8b757fb" />
+      <Association Name="Rol_Usuario" ed:AssociationGuid="5ea0a392-54be-4fcb-ab6c-9edf73a307d7" Member="Rol" ed:Guid="cb7ca0a6-1d95-4f81-8042-1a496b49dcd4" ThisKey="IdRol" OtherKey="Id" Type="Rol" DeleteRule="NO ACTION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Type Name="ConsultarUsuarioResult" ed:Guid="3c97ab13-7157-4160-8243-f990350f322a">
+    <Column Name="Id" Type="System.Byte" DbType="TINYINT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="true" ed:Guid="94b8712d-c642-4f6b-b802-f4ab65ccf7df" />
+    <Column Name="Nombre" Type="System.String" DbType="VARCHAR(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="true" ed:Guid="eeae448a-7aa8-4ea9-8d50-8a889c11f126" />
+    <Column Name="Identificacion" Type="System.Int32" DbType="INT NOT NULL" CanBeNull="false" UpdateCheck="Never" ed:ValidateRequired="true" ed:Guid="f4b2db51-d29d-4a66-a818-6820c06358d8" />
+    <Column Name="Direccion" Type="System.String" DbType="VARCHAR(MAX)" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="4a5220b7-547b-4d48-9661-92e3346f8208" />
+    <Column Name="telefono" Member="Telefono" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="efd7b948-432f-4b7c-9d33-c20770f27bc3" />
+    <Column Name="eliminado" Member="Eliminado" Type="System.Boolean" DbType="BIT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="5cf53af5-3b9c-4ec7-b35a-99c4c99b1cd6" />
+  </Type>
+  <Type Name="CrearClienteResult" ed:Guid="29351947-c916-44cb-a98f-89d690a67214">
+    <Column Name="column0" Member="Column0" Type="System.Decimal" DbType="DECIMAL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="bfb44c6e-6321-4ee5-a24a-0af292fbb014" />
+  </Type>
+  <Type Name="ValidarUsernameResult" ed:Guid="b316ba67-4579-4bdd-8a19-f95a6f42db1c">
+    <Column Name="column0" Member="Column0" Type="System.Int32" DbType="INT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="bffef87c-a6ab-4dea-bb12-1d2f9128e896" />
+  </Type>
+  <Function Name="dbo.ConsultarCliente" Method="ConsultarCliente" ed:Guid="217d31ea-2d19-449b-b306-21d95c314317">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.ConsultarClientes" Method="ConsultarCliente" ed:Guid="28e470ba-96d8-4943-b720-abfbe0d5e812">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.ConsultarClientesActivos" Method="ConsultarClientesActivo" ed:Guid="304a54f9-7b05-4a9b-9051-f6dfc6472d4a">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.ConsultarFormulariosXrol" Method="ConsultarFormulariosXrol" ed:Guid="6c83bf64-c1f3-469f-93b7-3ae7c0e235c1">
+    <Parameter Name="idRol" Type="System.Int16" DbType="SMALLINT" Precision="5" Scale="0" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.ConsultarOrdenCompra" Method="ConsultarOrdenCompra" ed:Guid="4dec1536-88f6-4d8e-aae0-f69623b2728e">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.ConsultarOrdenesCompra" Method="ConsultarOrdenesCompra" ed:Guid="ac01463a-b5c7-461a-afd3-02c4a59799b0">
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.ConsultarOrdenesCompraActivas" Method="ConsultarOrdenesCompraActiva" ed:Guid="01b56713-cd8e-4acf-9040-5cc5b5987aae">
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.ConsultarOrdenesCompraXCliente" Method="ConsultarOrdenesCompraXCliente" ed:Guid="1a5e3bb2-a826-49ed-ab55-5f464d6be9a3">
+    <Parameter Name="IdCliente" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.ConsultarProducto" Method="ConsultarProducto" ed:Guid="6fd35a57-f0fd-405a-8316-42268e6cdd53">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ConsultarProductos" Method="ConsultarProducto" ed:Guid="fb65ba2a-a23b-4934-9aa0-b0dba2e4262d">
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ConsultarProductosActivos" Method="ConsultarProductosActivo" ed:Guid="8c8262f9-48fd-4b21-ac0f-72c8534f58c7">
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.ConsultarRoles" Method="ConsultarRole" ed:Guid="8bba1519-8737-4aee-9368-fa326403aaa9">
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.ConsultarRolXID" Method="ConsultarRolXID" ed:Guid="8251dfbf-eb88-4372-9919-aad76942eb1e">
+    <Parameter Name="Id" Type="System.Int16" DbType="SMALLINT" Precision="5" Scale="0" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.ConsultarUsuario" Method="ConsultarUsuario" ed:Guid="3f34ae91-862b-4682-b1e1-f9d7f5bcc9cb">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.ConsultarUsuarios" Method="ConsultarUsuario" ed:Guid="48e5ffad-4fb0-4a41-bf6f-21f397e8449b">
+    <ElementType Type="ConsultarUsuarioResult" />
+  </Function>
+  <Function Name="dbo.ConsultarUsuariosActivos" Method="ConsultarUsuariosActivo" ed:Guid="46a99033-ecc8-40ff-afd1-c97168d2efe9">
+    <ElementType Type="ConsultarUsuarioResult" />
+  </Function>
+  <Function Name="dbo.CrearCliente" Method="CrearCliente" ed:Guid="6492b393-8baa-475d-944e-6f9282765fc3">
+    <Parameter Name="Nombre" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Nit" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Direccion" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Telefono" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="eliminado" Type="System.Boolean" DbType="BIT" />
+    <ElementType Type="CrearClienteResult" />
+  </Function>
+  <Function Name="dbo.CrearOrdenCompra" Method="CrearOrdenCompra" ed:Guid="94cafb8e-e46a-4498-b1e4-799175b03af2">
+    <Parameter Name="IdCliente" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="NoOrden" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Eliminado" Type="System.Boolean" DbType="BIT" />
+    <ElementType Type="CrearClienteResult" />
+  </Function>
+  <Function Name="dbo.CrearOrdenProducto" Method="CrearOrdenProducto" ed:Guid="9d2ad984-f000-468c-95ce-c67dc33a196c">
+    <Parameter Name="IdOrden" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="IdProducto" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CrearPais" Method="CrearPai" ed:Guid="9d9f56dd-7f0a-48a1-bbc6-c7fe474b21fa">
+    <Parameter Name="NombrePais" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Poblacion" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Gentilicio" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <ElementType Type="CrearClienteResult" />
+  </Function>
+  <Function Name="dbo.CrearProducto" Method="CrearProducto" ed:Guid="fdf0a7bc-240b-4776-8091-693b906178bc">
+    <Parameter Name="Producto" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Cliente" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Eliminado" Type="System.Boolean" DbType="BIT" />
+    <ElementType Type="CrearClienteResult" />
+  </Function>
+  <Function Name="dbo.CrearUsuario" Method="CrearUsuario" ed:Guid="0947f5a4-5423-4c62-b7bb-d1dd4912cd98">
+    <Parameter Name="Nombre" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Identificacion" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Direccion" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Telefono" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="eliminado" Type="System.Boolean" DbType="BIT" />
+    <Parameter Name="userName" Type="System.String" DbType="NVARCHAR(100)" FixedLength="true" MaxLength="100" />
+    <Parameter Name="pass" Type="System.String" DbType="NVARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="idRol" Type="System.Int16" DbType="SMALLINT" Precision="5" Scale="0" />
+    <ElementType Type="CrearClienteResult" />
+  </Function>
+  <Function Name="dbo.DesasociarProductos" Method="DesasociarProducto" ed:Guid="c35e6784-d173-47c3-9557-cbbf80c303b2">
+    <Parameter Name="IdOrden" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarCliente" Method="EliminarCliente" ed:Guid="fb29799a-4fbe-4065-960e-34a649c79029">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="eliminado" Type="System.Boolean" DbType="BIT" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarOrdenCompra" Method="EliminarOrdenCompra" ed:Guid="bd371abb-7488-48f9-94e6-c81edf2a223b">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="IdEliminado" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarProducto" Method="EliminarProducto" ed:Guid="b1450213-d799-4428-b974-e0644967ff64">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Eliminado" Type="System.Boolean" DbType="BIT" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarUsuario" Method="EliminarUsuario" ed:Guid="e58be728-5b83-4696-a2de-de1a9e021438">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="eliminado" Type="System.Boolean" DbType="BIT" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertarRol" Method="InsertarRol" ed:Guid="95925248-ffa5-415a-ae2b-7eb6fb088288">
+    <Parameter Name="nombre" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="urlInicio" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="mensajeInicio" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ModificarCliente" Method="ModificarCliente" ed:Guid="fc034740-932a-48c4-834d-5f17bb749d05">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Nombre" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Nit" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Direccion" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Telefono" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="eliminado" Type="System.Boolean" DbType="BIT" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ModificarOrdenCompra" Method="ModificarOrdenCompra" ed:Guid="3d49d674-a2d2-4110-a6c3-7e4342ea2635">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="IdCliente" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Eliminado" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ModificarProducto" Method="ModificarProducto" ed:Guid="7a0b12b1-2abe-42a0-bcc6-8af9a3bbf5fc">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Producto" Type="System.String" DbType="VARCHAR(1)" FixedLength="true" MaxLength="1" />
+    <Parameter Name="Cliente" Type="System.String" DbType="VARCHAR(1)" FixedLength="true" MaxLength="1" />
+    <Parameter Name="Eliminado" Type="System.Boolean" DbType="BIT" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ModificarRol" Method="ModificarRol" ed:Guid="1da880ce-57a5-4eb6-b2d1-06e5d8351f6c">
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="nombre" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="urlInicio" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="mensajeInicio" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ModificarUsuario" Method="ModificarUsuario" ed:Guid="42e721e0-598a-45d7-8560-08c8cccd3735">
+    <Parameter Name="Nombre" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Id" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Identificacion" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Direccion" Type="System.String" DbType="VARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="Telefono" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Parameter Name="Eliminado" Type="System.Boolean" DbType="BIT" />
+    <Parameter Name="userName" Type="System.String" DbType="NVARCHAR(100)" FixedLength="true" MaxLength="100" />
+    <Parameter Name="pass" Type="System.String" DbType="NVARCHAR(50)" FixedLength="true" MaxLength="50" />
+    <Parameter Name="idRol" Type="System.Int16" DbType="SMALLINT" Precision="5" Scale="0" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ObtenerOrdenCompraXId" Method="ObtenerOrdenCompraXId" ed:Guid="8bf02545-fea5-40c2-9b39-b86b183f0ba3">
+    <Parameter Name="IdOrden" Type="System.Int32" DbType="INT" Precision="10" Scale="0" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ValidarLogin" Method="ValidarLogin" ed:Guid="2fa46e0b-f642-4888-8527-3ed27dd5f321">
+    <Parameter Name="userName" Type="System.String" DbType="NVARCHAR(100)" FixedLength="true" MaxLength="100" />
+    <Parameter Name="passWord" Type="System.String" DbType="NVARCHAR(100)" FixedLength="true" MaxLength="100" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.ValidarUsername" Method="ValidarUsername" ed:Guid="6ceffa92-d188-4910-926e-8edd0ca38519">
+    <Parameter Name="userName" Type="System.String" DbType="NVARCHAR(100)" FixedLength="true" MaxLength="100" />
+    <ElementType Type="ValidarUsernameResult" />
+  </Function>
+</Database>

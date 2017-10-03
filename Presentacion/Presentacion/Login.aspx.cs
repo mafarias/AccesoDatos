@@ -13,7 +13,7 @@ namespace Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["usuario"] = null;
         }
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)

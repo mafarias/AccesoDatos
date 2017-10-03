@@ -35,7 +35,7 @@
                                  <asp:HyperLink NavigateUrl="~/Presentacion/AUsuarios.aspx" runat="server" Text="Usuarios"  /></li>
                              <li runat="server" id="Config_Clientes" visible="false">
                                  <asp:HyperLink  runat="server" NavigateUrl="~/Presentacion/Clientes.aspx" Text="Clientes" /></li>
-                             <li runat="server" id="Config_Productos" visible="false">  <asp:HyperLink NavigateUrl="../Productos.aspx" runat="server"  Text="Productos"/></li>
+                             <li runat="server" id="Config_Productos" visible="false">  <asp:HyperLink NavigateUrl="~/Presentacion/Productos.aspx" runat="server"  Text="Productos"/></li>
                              <li runat="server" id="Ordenes" visible="false">
                                  <asp:HyperLink NavigateUrl="~/Presentacion/Ordenes.aspx" runat="server" Text="Ordenes de Compra" /> </li>
                              <li runat="server" id="Ordenes_cliente" visible="false" > <asp:HyperLink NavigateUrl="~/Presentacion/OrdenesPorCliente.aspx" runat="server" Text=" Ordenes Por Cliente" /></li>
